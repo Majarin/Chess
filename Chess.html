@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 8;
+            border: 0;
+            padding: 0;
+        }
+        .row{
+            height: 5%; 
+            width: 5%;
+        }
+        .DS{
+            background-color: black;
+            min-width: 100px;
+            height: 100px;
+            
+        }
+        .LS{           
+            background-color: rgb(255, 255, 255);
+            min-width: 100px;
+            height: 100px;
+             
+        }
+        .row{
+            display: flex;
+            
+        }
+        #box1{
+            width: 100px;
+            height: 100px;
+            border: 1px solid #aaaaaa;
+        }
+        #box2{
+            width: 100px;
+            height: 100px;
+            border: 1px solid #ffffff;
+        }
+
+        div.sticky {
+            position: relative;
+            font-size: 70px;
+            top: 500px;
+            left: 50px;
+            padding: 3rem;
+            border-radius: 0.8rem;
+            color: rgb(0, 0, 0);
+            background-image: linear-gradient(Yellow,rgb(255, 255, 106));
+            width: 600px;
+            box-shadow: .8rem .8rem 1rem rgba(0,0,0,.6);
+        }
+        
+    </style>
+</head>
+<body style="background-color:rgb(0, 225, 255);">
+    <h1 id="test">Turn L</h1>
+    <ul id="check">Light Check : Dark Check :</ul>
+    <div id="demo">Light 10m 0s</div>
+    <div id="demo1">Dark 10m 0s</div>
+    <button onclick="myDunction()">Pass</button>
+
+    <img id="Piece1" src="DarkRook.png" class="Rook Pice D" draggable="true" ondragstart="drag(event)" width="100px" height="100px"></img>
+    <img id="Piece2" src="DarkKnight.png" class="Knight Pice D" draggable="true" ondragstart="drag(event)" width="100px" height="100px"></img>
+    <img id="Piece3" src="DarkBishop.png" class="Bishop Pice D" draggable="true" ondragstart="drag(event)" width="100px" height="100px"></img>
+    <img id="Piece4" src="DarkQueen.png" class="Queen Pice D" draggable="true" ondragstart="drag(event)" width="100px" height="100px"></img>
+    <img id="Piece5" src="DarkKing.png" class="King Pice D" draggable="true" ondragstart="drag(event)" width="100px" height="100px"></img>
+    <img id="Piece6" src="DarkBishop.png" class="Bishop Pice D" draggable="true" ondragstart="drag(event)" width="100px" height="100px"></img>
+    <img id="Piece7" src="DarkKnight.png" class="Knight Pice D" draggable="true" ondragstart="drag(event)" width="100px" height="100px"></img>
+    <img id="Piece8" src="DarkRook.png" class="Rook Pice D" draggable="true" ondragstart="drag(event)" width="100px" height="100px"></img>
+    <img id="Piece9" src="DarkPawn.png" class="Pawn Pice D" draggable="true" ondragstart="drag(event)" width="100px" height="100px"></img>
+    <img id="Piece10" src="DarkPawn.png" class="Pawn Pice D" draggable="true" ondragstart="drag(event)" width="100px" height="100px"></img>
+    <img id="Piece11" src="DarkPawn.png" class="Pawn Pice D" draggable="true" ondragstart="drag(event)" width="100px" height="100px"></img>
+    <img id="Piece12" src="DarkPawn.png" class="Pawn Pice D" draggable="true" ondragstart="drag(event)" width="100px" height="100px"></img>
+    <img id="Piece13" src="DarkPawn.png" class="Pawn Pice D" draggable="true" ondragstart="drag(event)" width="100px" height="100px"></img>
+    <img id="Piece14" src="DarkPawn.png" class="Pawn Pice D" draggable="true" ondragstart="drag(event)" width="100px" height="100px"></img>
+    <img id="Piece15" src="DarkPawn.png" class="Pawn Pice D" draggable="true" ondragstart="drag(event)" width="100px" height="100px"></img>
+    <img id="Piece16" src="DarkPawn.png" class="Pawn Pice D" draggable="true" ondragstart="drag(event)" width="100px" height="100px"></img>
+    <img id="Piece18" src="LightPawn.png" class="Pawn Pice L"  draggable="true" ondragstart="drag(event)" width="100px" height="100px"></img>
+    <img id="Piece17" src="LightPawn.png" class="Pawn Pice L"  draggable="true" ondragstart="drag(event)" width="100px" height="100px"></img>
+    <img id="Piece19" src="LightPawn.png" class="Pawn Pice L"  draggable="true" ondragstart="drag(event)" width="100px" height="100px"></img>
+    <img id="Piece20" src="LightPawn.png" class="Pawn Pice L"  draggable="true" ondragstart="drag(event)" width="100px" height="100px"></img>
+    <img id="Piece21" src="LightPawn.png" class="Pawn Pice L"  draggable="true" ondragstart="drag(event)" width="100px" height="100px"></img>
+    <img id="Piece22" src="LightPawn.png" class="Pawn Pice L"  draggable="true" ondragstart="drag(event)" width="100px" height="100px"></img>
+    <img id="Piece23" src="LightPawn.png" class="Pawn Pice L"  draggable="true" ondragstart="drag(event)" width="100px" height="100px"></img>
+    <img id="Piece24" src="LightPawn.png" class="Pawn Pice L"  draggable="true" ondragstart="drag(event)" width="100px" height="100px"></img>
+    <img id="Piece25" src="LightRook.png" class="Rook Pice L"  draggable="true" ondragstart="drag(event)" width="100px" height="100px"></img>
+    <img id="Piece26" src="LightKnight.png" class="Knight Pice L" draggable="true" ondragstart="drag(event)" width="100px" height="100px"></img>
+    <img id="Piece27" src="LightBishop.png" class="Bishop Pice L" draggable="true" ondragstart="drag(event)" width="100px" height="100px"></img>
+    <img id="Piece28" src="LightQueen.png" class="Queen Pice L" draggable="true" ondragstart="drag(event)" width="100px" height="100px"></img>
+    <img id="Piece29" src="LightKing.png" class="King Pice L" draggable="true" ondragstart="drag(event)" width="100px" height="100px"></img>
+    <img id="Piece30" src="LightBishop.png" class="Bishop Pice L" draggable="true" ondragstart="drag(event)" width="100px" height="100px"></img>
+    <img id="Piece31" src="LightKnight.png" class="Knight Pice L" draggable="true" ondragstart="drag(event)" width="100px" height="100px"></img>
+    <img id="Piece32" src="LightRook.png" class="Rook Pice L" draggable="true" ondragstart="drag(event)" width="100px" height="100px"></img>
+    <div class="sticky "style= "display: none;" id="Winner"></div>
+    <script src="Chess.js"></script>
+</body>
+</html>
