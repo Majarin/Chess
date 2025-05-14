@@ -1,4 +1,5 @@
 // Bishop Movement Logic
+function bishop(Color)
 {
     const Color = turn === 0 ? 'L' : 'D'
     const currentPiece = document.getElementById(data)

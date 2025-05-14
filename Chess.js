@@ -329,6 +329,49 @@ function allowDrop(ev)
         }
         
     }
+    function bishop(Color)
+    {
+       
+        const currentPiece = document.getElementById(data)
+        const currentSquare = currentPiece.parentElement
+        const newSquare = ev.target.closest('.rute')
+        const oldX = parseInt(currentSquare.dataset.X)
+        const oldY = parseInt(currentSquare.dataset.Y)
+        const newX = parseInt(newSquare.dataset.X)
+        const newY = parseInt(newSquare.dataset.Y)
+
+
+        if (currentPiece.matches('.Bishop, .Queen') && currentPiece.classList.contains(Color)) {
+            const distanceX = Math.abs(newX - oldX)
+            const distanceY = Math.abs(newY - oldY)
+            const directionX = Math.sign(newX - oldX)
+            const directionY = Math.sign(newY - oldY)
+
+            if (distanceX > 0 && distanceX === distanceY) {
+                let captured = false
+
+                for (let index = 1; index <= distanceX; index++) {
+                    const targetX = oldX + index * directionX
+                    const targetY = oldY + index * directionY
+                    const targetSquare = document.getElementById(String.fromCharCode(96 + targetX) + targetY)
+                    const targetPiece = targetSquare.firstElementChild
+
+                    if (targetPiece) {
+                        captured = true
+
+                        currentPiece.appendChild(targetPiece)
+                        targetSquare.appendChild(currentPiece)
+
+                        break
+                    }
+                }
+
+                if (!captured) {
+                    Real = true
+                }
+            }
+        }
+    }
 }   
     if (ev.target.dataset.Y != null && ev.target.dataset.X != null)
     {
@@ -407,97 +450,7 @@ function allowDrop(ev)
     // Light Bishop Movement Logic
     if ((Info.classList.contains("Bishop") || Info.classList.contains("Queen")) && Info.classList.contains("L") && turn == 0)
     {
-        
-        
-        if (oldX != newX && oldY != newY && ! ev.target.classList.contains("Pice"))
-        {
-            tempX = oldX
-            tempY = oldY
-            
-            
-            do{
-
-                if (tempX < newX)
-                {
-                    tempX++
-                }else if (tempX > newX)
-                {
-                    tempX--
-                }
-                if (tempY < newY)
-                {
-                    tempY++
-                }else if (tempY > newY)
-                {
-                    tempY--
-                }
-                let squere = document.getElementById(String.fromCharCode(96 + tempX) + tempY)
-                if (squere.hasChildNodes()) 
-                {
-                    let ChildNode = squere.childNodes[0];
-                    let ChildID = ChildNode.id
-                    let Child = document.getElementById(ChildID)
-                    
-
-
-                    Info.appendChild(Child);
-                    squere.appendChild(Info);
-                    
-                    tempY = newY
-                    tempX = newX
-
-                }else if (tempX == newX && tempY == newY)
-                {
-                    Real = true
-                }
-            }while (tempX != newX && tempY != newY)
-        }
-        if (ev.target.parentNode.dataset.Y != oldY && ev.target.parentNode.dataset.X != oldX && ev.target.classList.contains("Pice"))
-        {
-            tempX = oldX
-            tempY = oldY
-            do{
-                
-            if (tempX < newTX)
-            {
-                tempX++
-            }else if (tempX > newTX)
-            {
-                tempX--
-            }
-            if (tempY < newTY)
-            {
-                tempY++
-            }else if (tempY > newTY)
-            {
-                tempY--
-            }
-            let squere = document.getElementById(String.fromCharCode(96 + tempX) + tempY)
-
-            if (squere.hasChildNodes()) 
-            {
-                if (oldX != newTX && oldY != newTY)
-                {
-                    let ChildNode = squere.childNodes[0];
-                    let ChildID = ChildNode.id
-                    let Child = document.getElementById(ChildID)
-    
-                        
-                    Info.appendChild(Child);
-                    squere.appendChild(Info);
-                    
-                    tempY = newTY
-                    tempX = newTX
-    
-                }
-            }
-    
-
-            }while (tempX != newTX && tempY != newTY)
-        } 
- 
-        
-
+        bishop("L")
     }
     // Light Queen Movement Logic
             // it is litaraly just a bishop and a rook
@@ -590,98 +543,7 @@ function allowDrop(ev)
     // Dark Bishop Movement Logic
     if ((Info.classList.contains("Bishop") || Info.classList.contains("Queen")) && Info.classList.contains("D") && turn == 1)
     {
-
-        
-        if (oldX != newX && oldY != newY && ! ev.target.classList.contains("Pice"))
-        {
-            tempX = oldX
-            tempY = oldY
-            
-            
-            do{
-
-            if (tempX < newX)
-            {
-                tempX++
-            }else if (tempX > newX)
-            {
-                tempX--
-            }
-            if (tempY < newY)
-            {
-                tempY++
-            }else if (tempY > newY)
-            {
-                tempY--
-            }
-            let squere = document.getElementById(String.fromCharCode(96 + tempX) + tempY)
-            if (squere.hasChildNodes() != null)
-            {
-                if (squere.hasChildNodes()) 
-                {
-                    let ChildNode = squere.childNodes[0];
-                    let ChildID = ChildNode.id
-                    let Child = document.getElementById(ChildID)
-                    
-                    
-                    Info.appendChild(Child);
-                    squere.appendChild(Info);
-
-                    tempY = newY
-                    tempX = newX
-                }else if (tempX == newX && tempY == newY)
-                {
-                    Real = true
-                }
-            }
-            }while (tempX != newX && tempY != newY)
-        }
-        if (ev.target.parentNode.dataset.Y != oldY && ev.target.parentNode.dataset.X != oldX && ev.target.classList.contains("Pice"))
-            {
-                tempX = oldX
-                tempY = oldY
-                do{
-    
-                if (tempX < newTX)
-                {
-                    tempX++
-                }else if (tempX > newTX)
-                {
-                    tempX--
-                }
-                if (tempY < newTY)
-                {
-                    tempY++
-                }else if (tempY > newTY)
-                {
-                    tempY--
-                }
-                let squere = document.getElementById(String.fromCharCode(96 + tempX) + tempY)
-
-                
-                if (squere.hasChildNodes()) 
-                    {
-                        if (oldX != newTX && oldY != newTY)
-                        {
-                            let ChildNode = squere.childNodes[0];
-                            let ChildID = ChildNode.id
-                            let Child = document.getElementById(ChildID)
-            
-                                
-                            Info.appendChild(Child);
-                            squere.appendChild(Info);
-                            
-                            tempY = newTY
-                            tempX = newTX
-            
-                        }
-                    }
-
-                }while (tempX != newTX && tempY != newTY)
-            } 
-    
-        
-
+        bishop("D")
     }
     // Dark Queen Movement Logic
             // it is litaraly just a bishop and a rook
