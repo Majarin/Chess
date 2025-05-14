@@ -114,151 +114,6 @@ function startTimer1(duration1)
 }
 
 //Rook
-function rook(Color)
-{
-    const otherColor = Color == 'D' ? 'L' : 'D';
-    let X = 0
-    let Y = 0
-
-
-    if ((oldX != newX || oldY != newY) && Info.id == Piece25)
-    {
-        RookmoveL1 = true
-    }
-    if ((oldX != newX || oldY != newY) && Info.id == Piece32)
-    {
-        RookmoveL2 = true
-    }
-    if (newY == oldY || newX == oldX)
-    {
-        if (newY != oldY)
-        {
-            Y = oldY
-            do{
-                if (newY > Y)
-                {
-                    Y = Y + 1
-                }
-                else if (newY < Y )
-                {
-                    Y = Y - 1
-                }
-                let squere = document.getElementById(String.fromCharCode(96 + oldX) + Y)
-                if (squere.hasChildNodes())
-                {
-                    RookmoveL = true
-                    let ChildNode = squere.childNodes[0];
-                    let ChildID = ChildNode.id
-                    Info.appendChild(document.getElementById(ChildID));
-                    squere.appendChild(Info);
-                    newY = Y
-                    appended = true
-                    Real = false
-                }else if (appended == false)
-                {
-                    Real = true
-                }
-
-            }while (Y != newY) 
-        }
-        if (newX != oldX)
-        {
-            X = oldX
-
-            do{
-                if (newX > X) 
-                {
-                    X = X + 1
-                }
-                else if (newX < X )
-                {
-                    X = X - 1
-                }
-                let squere = document.getElementById(String.fromCharCode(96 + X) + oldY)
-                if (squere.hasChildNodes())
-                {
-                    RookmoveL = true
-                    let ChildNode = squere.childNodes[0];
-                    let ChildID = ChildNode.id
-                    Info.appendChild(document.getElementById(ChildID));
-                    squere.appendChild(Info);
-                    newX = X
-                    appended = true
-                    Real = false
-                }else if (appended == false)
-                {
-                    Real = true
-                }
-            }while (X != newX) 
-        }
-    }
-    if (ev.target.parentNode.dataset.Y == oldY || ev.target.parentNode.dataset.X == oldX)
-    {
-        if (newTY != oldY)
-        {
-            Y = oldY
-            do{
-                if (newTY > Y)
-                {
-                    Y = Y + 1
-                }
-                else if (newTY < Y )
-                {
-                    Y = Y - 1
-                }
-                let squere = document.getElementById(String.fromCharCode(96 + oldX) + Y)
-                if (squere.hasChildNodes())
-                {
-                    RookmoveL = true
-                    let ChildNode = squere.childNodes[0];
-                    let ChildID = ChildNode.id
-                    Info.appendChild(document.getElementById(ChildID));
-                    squere.appendChild(Info);
-                    newTY = Y
-                    appended = true
-                    Real = false
-                }else if (appended == false)
-                {
-                    Real = true
-                }
-            }while (Y != newTY) 
-        }
-        if (newX != oldX)
-        {
-            X = oldX
-
-            do{
-                if (newTX > X)
-                {
-                    X = X + 1
-                }
-                else if (newTX < X )
-                {
-                    X = X - 1
-                }
-                let squere = document.getElementById(String.fromCharCode(96 + X) + oldY)
-                if (squere.hasChildNodes())
-                {
-                    if (newTX != oldX)
-                    {
-                        RookmoveL = true
-                        let ChildNode = squere.childNodes[0];
-                        let ChildID = ChildNode.id
-                        Info.appendChild(document.getElementById(ChildID));
-                        squere.appendChild(Info);
-                        newTX = X
-                        appended = true
-                        Real = false
-                    }
-                }else if (appended == false)
-                {
-                    Real = true
-                }
-            }while (X != newTX) 
-        }
-    }
-    
-}//Rook
 
 
 startTimer(totalTime);
@@ -327,7 +182,154 @@ function allowDrop(ev)
     var BlockTime2 = false
 
     var appended = false
+{//movment
+    //Rook   
+    function rook(Color)
+    {
+        const otherColor = Color == 'D' ? 'L' : 'D';
+        let X = 0
+        let Y = 0
     
+    
+        if ((oldX != newX || oldY != newY) && Info.id == Piece25)
+        {
+            RookmoveL1 = true
+        }
+        if ((oldX != newX || oldY != newY) && Info.id == Piece32)
+        {
+            RookmoveL2 = true
+        }
+        if (newY == oldY || newX == oldX)
+        {
+            if (newY != oldY)
+            {
+                Y = oldY
+                do{
+                    if (newY > Y)
+                    {
+                        Y = Y + 1
+                    }
+                    else if (newY < Y )
+                    {
+                        Y = Y - 1
+                    }
+                    let squere = document.getElementById(String.fromCharCode(96 + oldX) + Y)
+                    if (squere.hasChildNodes())
+                    {
+                        RookmoveL = true
+                        let ChildNode = squere.childNodes[0];
+                        let ChildID = ChildNode.id
+                        Info.appendChild(document.getElementById(ChildID));
+                        squere.appendChild(Info);
+                        newY = Y
+                        appended = true
+                        Real = false
+                    }else if (appended == false)
+                    {
+                        Real = true
+                    }
+    
+                }while (Y != newY) 
+            }
+            if (newX != oldX)
+            {
+                X = oldX
+    
+                do{
+                    if (newX > X) 
+                    {
+                        X = X + 1
+                    }
+                    else if (newX < X )
+                    {
+                        X = X - 1
+                    }
+                    let squere = document.getElementById(String.fromCharCode(96 + X) + oldY)
+                    if (squere.hasChildNodes())
+                    {
+                        RookmoveL = true
+                        let ChildNode = squere.childNodes[0];
+                        let ChildID = ChildNode.id
+                        Info.appendChild(document.getElementById(ChildID));
+                        squere.appendChild(Info);
+                        newX = X
+                        appended = true
+                        Real = false
+                    }else if (appended == false)
+                    {
+                        Real = true
+                    }
+                }while (X != newX) 
+            }
+        }
+        if (ev.target.parentNode.dataset.Y == oldY || ev.target.parentNode.dataset.X == oldX)
+        {
+            if (newTY != oldY)
+            {
+                Y = oldY
+                do{
+                    if (newTY > Y)
+                    {
+                        Y = Y + 1
+                    }
+                    else if (newTY < Y )
+                    {
+                        Y = Y - 1
+                    }
+                    let squere = document.getElementById(String.fromCharCode(96 + oldX) + Y)
+                    if (squere.hasChildNodes())
+                    {
+                        RookmoveL = true
+                        let ChildNode = squere.childNodes[0];
+                        let ChildID = ChildNode.id
+                        Info.appendChild(document.getElementById(ChildID));
+                        squere.appendChild(Info);
+                        newTY = Y
+                        appended = true
+                        Real = false
+                    }else if (appended == false)
+                    {
+                        Real = true
+                    }
+                }while (Y != newTY) 
+            }
+            if (newX != oldX)
+            {
+                X = oldX
+    
+                do{
+                    if (newTX > X)
+                    {
+                        X = X + 1
+                    }
+                    else if (newTX < X )
+                    {
+                        X = X - 1
+                    }
+                    let squere = document.getElementById(String.fromCharCode(96 + X) + oldY)
+                    if (squere.hasChildNodes())
+                    {
+                        if (newTX != oldX)
+                        {
+                            RookmoveL = true
+                            let ChildNode = squere.childNodes[0];
+                            let ChildID = ChildNode.id
+                            Info.appendChild(document.getElementById(ChildID));
+                            squere.appendChild(Info);
+                            newTX = X
+                            appended = true
+                            Real = false
+                        }
+                    }else if (appended == false)
+                    {
+                        Real = true
+                    }
+                }while (X != newTX) 
+            }
+        }
+        
+    }
+}   
     if (ev.target.dataset.Y != null && ev.target.dataset.X != null)
     {
     } else if (ev.target.parentNode.dataset.Y != null && ev.target.parentNode.dataset.X != null)
@@ -389,6 +391,8 @@ function allowDrop(ev)
     {
         rook("L")
     }
+
+
     // Light Knight Movement Logic
     if (Info.classList.contains("Knight") && Info.classList.contains("L") && turn == 0)
     {
@@ -567,144 +571,10 @@ function allowDrop(ev)
     }     
     // Dark Rook Movement Logic
     if ((Info.classList.contains("Rook") || Info.classList.contains("Queen")) && Info.classList.contains("D") && turn == 1)
-        {
-            if ((oldX != newX || oldY != newY) && Info.id == Piece1)
-                {
-                    RookmoveD1 = true
-                }
-            if ((oldX != newX || oldY != newY) && Info.id == Piece8)
-                {
-                    RookmoveD2 = true
-                }
-            if (newY == oldY || newX == oldX)
-            {
-                if (newY != oldY)
-                {
-                    tempY = oldY
-                    do{
-                        if (newY > tempY)
-                        {
-                            tempY = tempY + 1
-                        }
-                        else if (newY < tempY )
-                        {
-                            tempY = tempY - 1
-                        }
-                        let squere = document.getElementById(String.fromCharCode(96 + oldX) + tempY)
-                        if (squere.hasChildNodes())
-                        {
-                            RookmoveD = true
-                            let ChildNode = squere.childNodes[0];
-                            let ChildID = ChildNode.id
-                            Info.appendChild(document.getElementById(ChildID));
-                            squere.appendChild(Info);
-                            newY = tempY
-                            appended = true
-                            Real = false
-                        }else if (appended == false)
-                        {
-                            Real = true
-                        }
-    
-                    }while (tempY != newY) 
-                }
-                if (newX != oldX)
-                {
-                    tempX = oldX
-    
-                    do{
-                        if (newX > tempX) 
-                        {
-                            tempX = tempX + 1
-                        }
-                        else if (newX < tempX )
-                        {
-                            tempX = tempX - 1
-                        }
-                        let squere = document.getElementById(String.fromCharCode(96 + tempX) + oldY)
-                        if (squere.hasChildNodes())
-                        {
-                            RookmoveD = true
-                            let ChildNode = squere.childNodes[0];
-                            let ChildID = ChildNode.id
-                            Info.appendChild(document.getElementById(ChildID));
-                            squere.appendChild(Info);
-                            newX = tempX
-                            appended = true
-                            Real = false
-                        }else if (appended == false)
-                            {
-                                Real = true
-                            }
-                    }while (tempX != newX) 
-                }
-            }
-            if (ev.target.parentNode.dataset.Y == oldY || ev.target.parentNode.dataset.X == oldX)
-            {
-                if (newTY != oldY)
-                {
-                    tempY = oldY
-                    do{
-                        if (newTY > tempY)
-                        {
-                            tempY = tempY + 1
-                        }
-                        else if (newTY < tempY )
-                        {
-                            tempY = tempY - 1
-                        }
-                        let squere = document.getElementById(String.fromCharCode(96 + oldX) + tempY)
-                        if (squere.hasChildNodes())
-                        {
-                            RookmoveD = true
-                            let ChildNode = squere.childNodes[0];
-                            let ChildID = ChildNode.id
-                            Info.appendChild(document.getElementById(ChildID));
-                            squere.appendChild(Info);
-                            newTY = tempY
-                            appended = true
-                            Real = false
-                        }else if (appended == false)
-                            {
-                                Real = true
-                            }
-                    }while (tempY != newTY) 
-                }
-                if (newX != oldX)
-                {
-                    tempX = oldX
-    
-                    do{
-                        if (newTX > tempX)
-                        {
-                            tempX = tempX + 1
-                        }
-                        else if (newTX < tempX )
-                        {
-                            tempX = tempX - 1
-                        }
-                        let squere = document.getElementById(String.fromCharCode(96 + tempX) + oldY)
-                        if (squere.hasChildNodes())
-                        {
-                            if (newTX != oldX)
-                            {
-                            RookmoveD = true
-                            let ChildNode = squere.childNodes[0];
-                            let ChildID = ChildNode.id
-                            Info.appendChild(document.getElementById(ChildID));
-                            squere.appendChild(Info);
-                            newTX = tempX
-                            appended = true
-                            Real = false
-                            }
-                        }else if (appended == false)
-                            {
-                                Real = true
-                            }
-                    }while (tempX != newTX) 
-                }
-            }
+    {
+        rook("D")  
     }
+    
     // Dark Knight Movement Logic
     if (Info.classList.contains("Knight") && Info.classList.contains("D") && turn == 1)
     {
@@ -911,6 +781,7 @@ function allowDrop(ev)
         var now1 = new Date().getTime();
         remainingTime1 = countDownDate1 - now1;
     }
+
 }
 //Winner Logic
 {
