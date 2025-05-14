@@ -113,7 +113,7 @@ function startTimer1(duration1)
 
 }
 
-//Rook
+
 
 
 startTimer(totalTime);
@@ -381,7 +381,7 @@ function allowDrop(ev)
         if ((ev.target.parentNode.dataset.Y == 8 || newY == 8 ) && Real == true )
         {
             
-            Info.src = "LightQueen.png";
+            Info.src = "Pictures/LightQueen.png";
             Info.classList.remove("Pawn")
             Info.classList.add("Queen")
         }
@@ -564,7 +564,7 @@ function allowDrop(ev)
         }
         if ((ev.target.parentNode.dataset.Y == 1 || newY == 1 ) && Real == true )
         {
-            Info.src = "DarkQueen.png";
+            Info.src = "Pictures/DarkQueen.png";
             Info.classList.remove("Pawn")
             Info.classList.add("Queen")
         }
